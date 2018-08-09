@@ -1,0 +1,77 @@
+:root {
+	--container-display: block;
+	--card-figure-display: none;
+	--title-font-size: 1.2rem; 
+	--card-background: rgb(99, 97, 97);
+}
+
+@media screen and (min-width: 450px) {
+	:root {
+		--card-figure-display: inline-block;
+		--title-font-size: 1.75rem; 
+	}
+}
+
+@media screen and (min-width: 900px) {
+	:root {
+		--container-display: flex;
+		--title-font-size: 2rem; 
+	}
+}
+
+.card-b, .card-d {
+	--card-background: #222;
+	--card-text-color: #F0F0F0;
+} 
+@media screen and (min-width: 900px) { 
+	.card-b, .card-d {
+		--card-background: inherit;
+		--card-text-color: inherit;
+	}
+	.card-a, .card-d {
+		--card-background: #222;
+		--card-text-color: #F0F0F0;
+	} 
+}
+
+body {
+	margin: 1rem auto;
+	width: 85%;
+	max-width: 1400px;
+}
+
+h1 { 
+	font-size: var(--title-font-size); 
+	font-weight: bold;
+	margin: 0 1rem .5rem 1rem;
+	line-height: 1.2;
+}
+
+.card-container {
+	display: var(--container-display);
+}
+
+.card {
+  display: flex;
+	line-height: 1.15;
+  align-items: flex-start;
+	background: var(--card-background);
+	color: var(--card-text-color);
+	border: solid 1px #ccc;
+	padding: 20px;
+	margin: 1em;
+}
+
+.card-figure {
+  margin-right: 1em;
+	display: var(--card-figure-display);
+}
+
+.card-body {
+  flex: 1;
+}
+
+.card-title {
+	font-weight: bold;
+	margin: 0 0 .5em 0;
+}

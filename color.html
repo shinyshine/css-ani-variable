@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" type="text/css" href="./color.css" />
+</head>
+
+<body>
+    <main class="booth">
+        <aside class="slider">
+            <label>Move this 👇 </label>
+            <input class="booth-slider" type="range" min="-50" max="50" value="-50" step="5" />
+        </aside>
+
+        <section class="color-boxes">
+            <div class="color-box" id="1">
+                <input value="red" />
+            </div>
+            <div class="color-box" id="2">
+                <input/>
+            </div>
+            <div class="color-box" id="3">
+                <input/>
+            </div>
+            <div class="color-box" id="4">
+                <input/>
+            </div>
+            <div class="color-box" id="5">
+                <input/>
+            </div>
+            <div class="color-box" id="6">
+                <input/>
+            </div>
+        </section>
+
+        <footer class="instructions">
+            👉🏻 Move the slider
+            <br/> 👉🏻 Write any color in the red boxes
+        </footer>
+    </main>
+
+</body>
+
+<script>
+    const inputs = document.querySelectorAll('.color-box > input')
+    const root = document.documentElement
+    const range = document.querySelector('.booth-slider')
+
+    //as slider range's value changes, do something 
+    range.addEventListener('input', handleSlider)
+
+    //as the value in the input changes, do something.
+    inputs.forEach(input => {
+        input.addEventListener('input', handleInputChange)
+    })
+
+    function handleInputChange(e) {
+        let value = e.target.value
+        let inputId = e.target.parentNode.id
+        let inputBg = `--bg-${inputId}`
+        root.style.setProperty(inputBg, value)
+    }
+
+    function handleSlider(e) {
+        let value = e.target.value
+        root.style.setProperty('--slider', value)
+    }
+
+
+
+
+
+
+
+</script>
+
+</html>
